@@ -21,6 +21,14 @@ Graph.prototype.updatePrice = function (productIdNum, storeIdNum, newWeight) {
     }
 };
 
+Graph.prototype.updateAvailability = function (productIdNum, storeIdNum) {
+    for (var i = 0; i < this.edges.length; i++) {
+        if(this.edges[i].productId === productIdNum && this.edges[i].storeId === storeIdNum) {
+            this.edges.splice(i, 1)
+        }
+    }
+};
+
 //nodes should look like this:
 // {id: 1234, name: 'wonder bread', type: 'product'} this is a product node
 // {id: 236, name: 'Safeway011', type: 'store', latitude:'36.7783° N', longitude: '119.4179° W'} this is a store nodes
