@@ -36,11 +36,11 @@ Graph.prototype.updateAvailability = function (productIdNum, storeIdNum) {
 };
 
 
-Graph.prototype.findAvailableProducts = function(storeId, productId) {
+Graph.prototype.findAvailableProducts = function(storeIdNum, productIdNum) {
   let availableProducts = [];
 
   for (let i = 0; i < this.edges.length; i ++){
-    if (this.edges[i].storeId === storeId && this.edges[i].productId === productId) {
+    if (this.edges[i].storeId === storeIdNum && this.edges[i].productId === productIdNum) {
       availableProducts.push(this.edges[i]);
     }
   }
@@ -48,7 +48,7 @@ Graph.prototype.findAvailableProducts = function(storeId, productId) {
   return availableProducts;
 };
 
-Graph.prototype.findUnavailableProducts = function(id) {
+Graph.prototype.findUnavailableProducts = function(productId) {
   let unavailableProducts = [];
 
   for (var i = 0; i < this.nodes.length; i++) {
