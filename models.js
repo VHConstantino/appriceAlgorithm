@@ -9,13 +9,14 @@ function Graph(){
     this.edges = [];
 }
 
+// Graph.prototype.initialize
 
-Graph.prototype.addNode = function (id, name, type) {
-    this.nodes.push(new GraphNode(id, name, type));
+Graph.prototype.addNode = function (config) {
+    this.nodes.push(new GraphNode(config));
 };
 
-Graph.prototype.addEdge = function (productId, storeId, price) {
-    this.edges.push(new GraphEdge(productId, storeId, price));
+Graph.prototype.addEdge = function (config) {
+    this.edges.push(new GraphEdge(config));
 };
 
 
@@ -60,6 +61,14 @@ Graph.prototype.findUnavailableProducts = function(productId) {
 
   return unavailableProducts;
 };
+
+
+// knex statement to create stores_products table:
+// knex('stores_products')
+//  .select('id', 'products.product_id', 'stores.store_id', 'products.name', 'products.product_type', 'stores.store_name', 'stores.store_address', 'availability', 'price')
+//  .innerJoin('products', 'stores_products.product_id', 'products.id')
+//  .innerJoin('stores', 'stores_products.store_id', 'stores.id')
+//  .orderBy('id')
 
 //nodes should look like this:
 // {id: 1234, name: 'wonder bread', type: 'product'} this is a product node

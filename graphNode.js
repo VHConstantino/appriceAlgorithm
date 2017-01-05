@@ -1,9 +1,9 @@
 "use strict";
 
-function GraphNode(id, name, type) {
-  this.id = id;
-  this.name = name;
-  this.type = type;
+function GraphNode(config) {
+  this.id = config.id;
+  this.name = config.name;
+  this.type = config.type;
 }
 
 module.exports = GraphNode;
